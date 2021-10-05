@@ -11,6 +11,7 @@
         "eamodio.gitlens",
         "EditorConfig.EditorConfig",
         "mikestead.dotenv",
-        "onecentlin.laravel-blade"
+        "onecentlin.laravel-blade",
+        // "dbaeumer.vscode-eslint"
     ]
 }

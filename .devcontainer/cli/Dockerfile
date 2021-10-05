@@ -6,8 +6,14 @@ RUN addgroup -g 1000 -S user && adduser -u 1000 -D user -G user
 RUN apk add --no-cache bash curl git vim
 # Install composer for php deps.
 RUN apk add --no-cache composer
+# Install pcntl
+RUN docker-php-ext-install pcntl
 # Install postgres pdo driver.
-RUN apk add --no-cache postgresql-dev && docker-php-ext-install pdo_pgsql
+# RUN apk add --no-cache postgresql-dev && docker-php-ext-install pdo_pgsql
+
+# Install mysql pdo driver
+RUN docker-php-ext-install pdo_mysql
+
 # Install redis driver.
 RUN mkdir -p /usr/src/php/ext/redis; \
     curl -fsSL --ipv4 https://github.com/phpredis/phpredis/archive/5.3.4.tar.gz | tar xvz -C "/usr/src/php/ext/redis" --strip 1; \
